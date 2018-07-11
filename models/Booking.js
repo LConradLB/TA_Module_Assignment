@@ -26,7 +26,7 @@ class Booking{
     authorise(personel, optionalDate){
         var date = new Date()
         if(typeof optionalDate !== "undefined") {
-            console.log("option undefined")
+            console.log("option !undefined")
             date = optionalDate
         }
 
