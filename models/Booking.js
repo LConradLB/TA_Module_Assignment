@@ -34,6 +34,10 @@ class Booking{
         this.authorisedVia = personel
         this.authorisedOnDate = date
     }
+
+    toJSON(){
+        return JSON.stringify(this)
+    }
 }
 
 module.exports = Booking

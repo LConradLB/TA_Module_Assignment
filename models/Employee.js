@@ -62,6 +62,10 @@ class Employee{
             default: return this._bookings.filter(booking => booking.startDate < new Date());
         }
     }
+
+    toJSON(){
+        return JSON.stringify(this)
+    }
 }
 
 
