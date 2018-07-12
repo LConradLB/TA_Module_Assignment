@@ -14,8 +14,8 @@ const expect = chai.expect;
 var fs = require("fs");
 
 
-var Employee = require('../lib/employeeStore.js')
-var EmployeeStore = require('../models/Employee.js')
+var EmployeeStore = require('../lib/employeeStore.js')
+var Employee = require('../models/Employee.js')
 
 describe('EmployeeStore Class', function() {
     describe('File Creation', function() {
@@ -35,15 +35,15 @@ describe('EmployeeStore Class', function() {
 
             //create employee
             var employee = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
-
+            employee.makeBooking("2018-09-01","2018-09-05")
             //add employee to file
-            EmployeeStore.save(employee.toJSON(), './employeeStore.json')
+            EmployeeStore.save(employee.toJSON(), '../employeeStore.json')
 
             //read file .load() and compare contents to expectation
-            expect(EmployeeStore.load('./employeeStore.json')).to.eql(employee.toJSON())
+            expect(EmployeeStore.load('../employeeStore.json')).to.eql(employee.toJSON())
 
             //wipe file
-            fs.writeFileSync('./employeeStore.json',"", 'utf8', function (err) {
+            fs.writeFileSync('../employeeStore.json',"", 'utf8', function (err) {
                 if (err) {
                     console.log('Some error occured - file either not saved or corrupted file saved.');
                 } else{
@@ -52,7 +52,7 @@ describe('EmployeeStore Class', function() {
             });
 
             //write contents back to file
-            fs.writeFileSync('./employeeStore.json',temp, 'utf8', function (err) {
+            fs.writeFileSync('../employeeStore.json',temp, 'utf8', function (err) {
                 if (err) {
                     console.log('Some error occured - file either not saved or corrupted file saved.');
                 } else{
