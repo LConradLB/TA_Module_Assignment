@@ -22,28 +22,34 @@ describe('EmployeeStore Class', function() {
         it("Should add an employee to the file", function(){
             //Setup 
             //get current file contents -> store in temp
-            var temp = fs.readFileSync('./employeeStore.json', 'utf8')
+            console.log("1")
+            var temp = fs.readFileSync('./storage/employeeStore.json', 'utf8')
 
             //wipe file
-            fs.writeFileSync('./employeeStore.json',"", 'utf8', function (err) {
+            console.log("2")
+            fs.writeFileSync('./storage/employeeStore.json',"", 'utf8', function (err) {
                 if (err) {
                     console.log('Some error occured - file either not saved or corrupted file saved.');
                 } else{
                     console.log('It\'s saved!');
                 }
             });
-
+            console.log("creation")
             //create employee
             var employee = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
             employee.makeBooking("2018-09-01","2018-09-05")
             //add employee to file
-            EmployeeStore.save(employee.toJSON(), '../employeeStore.json')
+            console.log("3")
+            EmployeeStore.save(employee.toJSON(), "./storage/employeeStore.json")
+
+            console.log("save")
 
             //read file .load() and compare contents to expectation
-            expect(EmployeeStore.load('../employeeStore.json')).to.eql(employee.toJSON())
+            expect(EmployeeStore.load("./storage/employeeStore.json")).to.eql(employee.toJSON())
 
+            console.log("Loads")
             //wipe file
-            fs.writeFileSync('../employeeStore.json',"", 'utf8', function (err) {
+            fs.writeFileSync("./storage/employeeStore.json","", 'utf8', function (err) {
                 if (err) {
                     console.log('Some error occured - file either not saved or corrupted file saved.');
                 } else{
@@ -52,7 +58,7 @@ describe('EmployeeStore Class', function() {
             });
 
             //write contents back to file
-            fs.writeFileSync('../employeeStore.json',temp, 'utf8', function (err) {
+            fs.writeFileSync("./storage/employeeStore.json",temp, 'utf8', function (err) {
                 if (err) {
                     console.log('Some error occured - file either not saved or corrupted file saved.');
                 } else{
