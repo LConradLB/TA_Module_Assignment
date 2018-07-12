@@ -64,7 +64,7 @@ class Employee{
     }
 
     toJSON(){
-        return JSON.stringify(this)
+        return (this)
     }
 }
 

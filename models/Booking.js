@@ -36,7 +36,7 @@ class Booking{
     }
 
     toJSON(){
-        return JSON.stringify(this)
+        return this
     }
 }
 
