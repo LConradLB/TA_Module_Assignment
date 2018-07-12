@@ -13,7 +13,7 @@ employee.bookings ​//=> []
 employee.holidayAllowance ​//=> 25
 */
 
-var employee = Employee.new("E123", "joe bloggs", "joe@bloggs.com", 25)
+var employee = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
 
 describe('Employee creation', function() {
     it("should create an employee correctly", function(){
@@ -23,16 +23,23 @@ describe('Employee creation', function() {
         expect(employee.bookings).to.eql([]);
         expect(employee.holidayAllowance).to.eql(25);
     });
+
 })
 
 
 /*
 employee.bookings = ​'nonsense'​ ​//=> Raise Exception to prevent
 overwriting (no need to write a test for this)
+*/
 
+
+
+
+/*
 employee.daysRemaining() ​//=> 25
 employee.daysBooked() ​//=> 0
 employee.daysBookedAndAuthorized() ​//=> 0
+
 employee.makeBooking(​"2018-09-01"​, ​"2018-09-05"​) ​//=> a Booking object
 with these start/end dates.
 employee.makeBooking(​"2018-01-01"​, ​"2018-01-05"​) ​//=> a Booking object

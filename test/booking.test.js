@@ -65,7 +65,7 @@ describe('Authorisation Creation', function() {
         expect(booking.authorisedBy()).to.eql("Mr Boss Man");
     });
     it("should have a date equal to today", function(){
-        expect(booking.authorisedOn()).to.eql(new Date());
+        expect(booking.authorisedOn()).to.eql(new Date().toLocaleDateString());
     });
 })
 
