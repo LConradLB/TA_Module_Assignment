@@ -27,7 +27,7 @@ describe('EmployeeStore Class', function() {
 
             //wipe file
             console.log("2")
-            fs.writeFileSync('./storage/employeeStore.json',"", 'utf8', function (err) {
+            fs.writeFileSync('./storage/employeeStore.json',"{}", 'utf8', function (err) {
                 if (err) {
                     console.log('Some error occured - file either not saved or corrupted file saved.');
                 } else{
@@ -45,7 +45,7 @@ describe('EmployeeStore Class', function() {
             console.log("save")
 
             //read file .load() and compare contents to expectation
-            expect(EmployeeStore.load("./storage/employeeStore.json")).to.eql(employee.toJSON())
+            expect(EmployeeStore.load("./storage/employeeStore.json")).to.eql(JSON.stringify(employee.toJSON()))
 
             console.log("Loads")
             //wipe file
