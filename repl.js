@@ -1,6 +1,6 @@
 const Booking = require("./models/Booking");
 const Employee = require("./models/Employee");
-const employeeStore = require("./models/employeeStore");
+const employeeStore = require("./lib/employeeStore");
 
 
 const repl = require("repl").start({

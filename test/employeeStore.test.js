@@ -21,33 +21,27 @@ describe('EmployeeStore Class', function() {
     describe('File Creation', function() {
         it("Should add an employee to the file", function(){
             //Setup 
+            EmployeeStore._checkJSONFileSyntax('./storage/employeeStore.json')
             //get current file contents -> store in temp
-            console.log("1")
-            var temp = fs.readFileSync('./storage/employeeStore.json', 'utf8')
-
+            var temp = JSON.parse(fs.readFileSync('./storage/employeeStore.json', 'utf8'))
             //wipe file
-            console.log("2")
-            fs.writeFileSync('./storage/employeeStore.json',"{}", 'utf8', function (err) {
+            fs.writeFileSync("./storage/employeeStore.json","", 'utf8', function (err) {
                 if (err) {
                     console.log('Some error occured - file either not saved or corrupted file saved.');
                 } else{
                     console.log('It\'s saved!');
                 }
             });
-            console.log("creation")
             //create employee
             var employee = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
             employee.makeBooking("2018-09-01","2018-09-05")
+            var employee2 = new Employee("R!@3", "mark bloggs", "mark@bloggs.com", 25)
             //add employee to file
-            console.log("3")
             EmployeeStore.save(employee.toJSON(), "./storage/employeeStore.json")
 
-            console.log("save")
-
             //read file .load() and compare contents to expectation
-            expect(EmployeeStore.load("./storage/employeeStore.json")).to.eql(JSON.stringify(employee.toJSON()))
+            expect(EmployeeStore.load("./storage/employeeStore.json")).to.eql("[" + JSON.stringify(employee.toJSON()) + "]")
 
-            console.log("Loads")
             //wipe file
             fs.writeFileSync("./storage/employeeStore.json","", 'utf8', function (err) {
                 if (err) {
