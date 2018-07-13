@@ -35,12 +35,10 @@ describe('EmployeeStore Class', function() {
             //create employee
             var employee = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
             employee.makeBooking("2018-09-01","2018-09-05")
-            var employee2 = new Employee("R!@3", "mark bloggs", "mark@bloggs.com", 25)
             //add employee to file
             EmployeeStore.save(employee.toJSON(), "./storage/employeeStore.json")
-
             //read file .load() and compare contents to expectation
-            expect(EmployeeStore.load("./storage/employeeStore.json")).to.eql("[" + JSON.stringify(employee.toJSON()) + "]")
+            expect(EmployeeStore.load("./storage/employeeStore.json")).to.eql('{"employees":[' + JSON.stringify(employee.toJSON()) + "]}")
 
             //wipe file
             fs.writeFileSync("./storage/employeeStore.json","", 'utf8', function (err) {
@@ -52,7 +50,7 @@ describe('EmployeeStore Class', function() {
             });
 
             //write contents back to file
-            fs.writeFileSync("./storage/employeeStore.json",temp, 'utf8', function (err) {
+            fs.writeFileSync("./storage/employeeStore.json",JSON.stringify(temp), 'utf8', function (err) {
                 if (err) {
                     console.log('Some error occured - file either not saved or corrupted file saved.');
                 } else{
