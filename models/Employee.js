@@ -12,7 +12,6 @@ class Employee{
     }
 
     set bookings (booking) {
-        //this._bookings = booking
         throw ("Can't mutate bookings property")
     }
 
