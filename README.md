@@ -12,7 +12,7 @@ You can run the file from your terminal but moving to the directory where the fi
 ### Tests
 Upon cloning the repo, make sure to run the tests to make sure that all the files are working on your system. You can run them by running the following command: ``` npm test```
 
-##Classes
+## Classes
 ### Booking Class
 The Booking class is instantiated with the following arguements; Start date of the booking & end date of the booking.  
   
