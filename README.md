@@ -2,4 +2,4 @@
 
 ## Setup
 
-employeeStore.json need to have the following initial line : {"employees":[]} or employeeStore._checkJSONFileSyntax('./employeeStore.json')
+employeeStore.json need to have the following initial line : ```json {"employees":[]} ``` or  call ```javascript employeeStore._checkJSONFileSyntax('./employeeStore.json')```
