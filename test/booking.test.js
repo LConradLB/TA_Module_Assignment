@@ -3,33 +3,8 @@ const mocha = require('mocha');
 const expect = chai.expect;
 
 var Booking = require('../models/Booking.js')
-
-/*
-booking = ​new​ Booking(​new​ Date(​"2018-09-01"​), ​new​ Date(​"2018-09-05"​)
-booking.startDate ​//=> Date object for "2018-09-01"
-booking.endDate ​//=> Date object for "2018-09-05"
-
-booking.numberOfDays() ​//=> 5
-
-booking.isAuthorized() ​//=> false
-booking.authorizedBy() ​//=> null
-booking.authorizedOn() ​//=> null
-
-booking.authorize(​"Mr Boss Man"​)
-booking.isAuthorized() ​//=> true
-booking.authorizedBy() ​//=> "Mr Boss Man"
-booking.authorizedOn() ​//=> Date object for today's Date
-
-booking.authorize(​"Mr Boss Man Again"​, ​new​ Date(​"2018-07-01"​)) ​// This
-function takes an optional argument representing the date it was
-authorized on.
-booking.isAuthorized() ​//=> true
-booking.authorizedBy() ​//=> "Mr Boss Man Again"
-booking.authorizedOn() ​//=> Date object for "2018-07-01" (the date
-provided)
-*/
-
 var booking = new Booking(new Date("2018-09-01"), new Date("2018-09-05"))
+
 describe('Booking Class', function() {
     describe('Booking creation', function() {
         it("should create a new booking with the correct start and end date", function(){

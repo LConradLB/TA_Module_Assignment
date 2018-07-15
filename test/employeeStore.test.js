@@ -61,19 +61,3 @@ describe('EmployeeStore Class', function() {
     })
 })
 
-/*
-
- collection.hotels = JSON.parse(fs.readFileSync('./hotelCollection.json', 'utf8'));
-        //return list of hotels
-        res.send(collection.hotels)
-
-
-        fs.writeFileSync('./hotelCollection.json',collection.toJSON(), 'utf8', function (err) {
-            if (err) {
-                console.log('Some error occured - file either not saved or corrupted file saved.');
-            } else{
-                console.log('It\'s saved!');
-            }
-            });
-
-*/

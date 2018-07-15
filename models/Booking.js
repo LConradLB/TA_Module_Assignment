@@ -26,7 +26,6 @@ class Booking{
     authorise(personel, optionalDate){
         var date = new Date().toLocaleDateString()
         if(typeof optionalDate !== "undefined") {
-            //console.log("option !undefined")
             date = optionalDate
         }
 

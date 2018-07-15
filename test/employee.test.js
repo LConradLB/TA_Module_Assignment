@@ -5,15 +5,6 @@ const expect = chai.expect;
 var Employee = require('../models/Employee.js')
 var Booking = require('../models/Booking.js')
 
-/*
-employee = Employee.new(​"E123"​, ​"joe bloggs"​, ​"joe@bloggs.com"​, ​25​)
-employee.payrollNo ​//=> "E123"
-employee.name ​//=> "Joe Bloggs" (note the capitalization)
-employee.email ​//=> "joe@bloggs.com"
-employee.bookings ​//=> []
-employee.holidayAllowance ​//=> 25
-*/
-
 var employee = new Employee("E123", "joe bloggs", "joe@bloggs.com", 25)
 
 
@@ -29,11 +20,6 @@ describe('Employee Class', function() {
 
     })
 
-    /*
-    employee.bookings = ​'nonsense'​ ​//=> Raise Exception to prevent
-    overwriting (no need to write a test for this)
-    */
-
     describe('Employee days taken initial setup', function() {
         it("should create days remaining", function(){
             expect(employee.daysRemaining()).to.eql(25);
@@ -41,13 +27,6 @@ describe('Employee Class', function() {
             expect(employee.daysBookedAndAuthorised()).to.eql(0);
         });
     })
-
-    /*
-    employee.daysRemaining() ​//=> 25
-    employee.daysBooked() ​//=> 0
-    employee.daysBookedAndAuthorized() ​//=> 0
-
-    */
 
     describe("Bookings", ()=>{
 
@@ -73,7 +52,6 @@ describe('Employee Class', function() {
                 employee.futureBookings()[0].authorise("Mr Boss Man")
                 expect(employee.daysBooked()).to.eql(10);
                 expect(employee.daysBookedAndAuthorised()).to.eql(5);
-                //expect(employee.futureBookings(true)).to.be.a([Booking]);
             });
         })
 
@@ -86,22 +64,7 @@ describe('Employee Class', function() {
             it("Given an optional arguement, pastBookings should only return authorised bookings", function(){
                 employee.pastBookings()[0].authorise("Mr Boss Man")
                 expect(employee.pastBookings(true)[0].isAuthorised()).to.eql(true);
-                //expect(employee.futureBookings(true)).to.be.a([Booking]);
             });
         })
         
     })
-    /*
-    employee.futureBookings() ​//=> [Booking] Array of all future bookings
-    employee.pastBookings() ​//=> [Booking] Array of all past bookings
-    employee.futureBookings()[​0​].authorize(​"Mr Boss Man"​) ​// Authorise a
-    booking as before.
-    employee.daysBooked() ​//=> 5
-    employee.daysBookedAndAuthorized() ​//=> 5
-
-
-    employee.futureBookings(​true​) ​//=> Only include authorized bookings
-    employee.pastBookings(​true​) ​//=> Only include authorized bookings
-    */
-
-})
